@@ -1,0 +1,95 @@
+.works-path {
+    padding: 80px 0 30px;
+
+    // .works-path_title
+
+    &_title {
+        color: $title-color;
+        @extend %title-font;
+        font-size: 36px;
+        line-height: 51px;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    // .works-path__items-box
+
+    &__items-box {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: 0 330px;
+        border-bottom: 2px solid rgba($color: $title-color, $alpha: 0.7);
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            background-color: $title-color;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+    }
+
+    // .works-path__item
+
+    &__item {
+        width: 250px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0 13px;
+        position: relative;
+        height: 100%;
+
+        &--consultation {
+            padding-bottom: 38px;
+        }
+
+        &--production {
+            padding-bottom: 38px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 2px;
+                height: 20px;
+                background: rgba($color: $title-color, $alpha: 0.7);
+            }
+        }
+
+        &--measure {
+            padding-top: 38px;
+            margin-left: 305px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 2px;
+                height: 20px;
+                background: rgba($color: $title-color, $alpha: 0.7);
+            }
+        }
+    }
+
+
+    // .works-path__item-title
+
+    &__item-title {
+        color: $title-color;
+        @extend %title-font;
+    }
+
+    // .works-path__item-text
+
+    &__item-text {
+        margin-top: 13px;
+    }
+}

@@ -1,0 +1,109 @@
+.new-collection {
+    padding: 45px 20px 105px;
+    text-align: center;
+    background-color: #fff;
+
+    // .new-collection__title
+
+    &__title {
+        color: $title-color;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 51px;
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            background: #6D7278;
+            border: 1px solid #979797;
+            width: 250px;
+            height: 1px;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+        }
+    }
+
+    // .new-collection__text
+
+    &__text {
+        max-width: 705px;
+        margin: 0 auto 27px;
+    }
+}
+
+.collection {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 30px;
+
+    // .collection__item
+
+    &__item {
+        position: relative;
+        &:hover .collection__info {
+            opacity: 0.6;
+        }
+    }
+
+    // .collection__images
+
+    &__images {
+        min-height: 350px;
+        object-fit: cover;
+    }
+
+    // .collection__info
+
+    &__info {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    // .collection__info-title
+
+    &__info-title {
+        color: $title-color;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            background: #6D7278;
+            border: 1px solid #979797;
+            width: 65%;
+            height: 1px;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+        }
+    }
+
+    // .collection__info-text
+
+    &__info-text {
+        font-weight: 600;
+        font-size: 14px;
+        color: #707070;
+    }
+}

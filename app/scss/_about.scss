@@ -1,0 +1,198 @@
+// Section About
+
+.about {
+
+    // .about__prev
+
+    &__prev,
+    &__popup {
+        background-image: url(../images/abot-bg.jpg);
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -53px;
+    }
+
+    // .about__prev-title
+
+    &__prev-title {
+        @extend %title-font;
+        color: $title-color;
+        font-size: 60px;
+        line-height: 80px;
+    }
+
+    // .about__content
+
+    &__content {
+        padding: 130px 0 40px;
+    }
+
+    // .about__title
+
+    &__title {
+        @extend %title-font;
+        color: $title-color;
+        font-size: 36px;
+        line-height: 60px;
+        max-width: 822px;
+        padding-bottom: 22px;
+        margin-bottom: 22px;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            height: 1px;
+            background-color: #6D7278;
+            border: 1px solid #979797;
+        }
+    }
+
+    // .about_text
+
+    &_text {
+        padding-left: 282px;
+
+        p {
+            margin-bottom: 30px;
+        }
+    }
+
+    // .about__popup
+
+    &__popup {
+        background-image: url(../images/popup-bg.jpg);
+        margin-top: 0;
+    }
+
+}
+
+// Section Inspiration
+
+.inspiration {
+
+    padding-top: 102px;
+    background-image: url(../images/inspiration-bg.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+
+    // .inspiration__inner
+
+    &__inner {
+        display: flex;
+        gap: 78px;
+        margin-left: 182px;
+        padding-bottom: 40px;
+    }
+
+    // .inspiration__img
+
+    &__img {
+        flex-basis: 432px;
+    }
+
+    // .inspiration__content
+
+    &__content {
+        flex-basis: 825px;
+    }
+
+    // .inspiration__title
+
+    &__title {
+        color: $title-color;
+        @extend %title-font;
+        font-size: 36px;
+        line-height: 60px;
+        padding-bottom: 16px;
+        margin-bottom: 24px;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 200px;
+            height: 2px;
+            background: #6D7278;
+            border: 1px solid #979797;
+            border-radius: 1px;
+        }
+    }
+
+    // .inspiration__text
+
+    &__text {
+        margin-bottom: 30px;
+    }
+
+    // .inspiration__list
+
+    &__item {
+        margin-bottom: 33px;
+    }
+
+    // .inspiration__item-content
+
+    &__item-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 15px;
+    }
+
+    // .inspiration__item-text
+
+    &__item-text,
+    &__item-num {
+        @extend %title-font;
+        line-height: 23px;
+    }
+
+    // .inspiration__line
+
+    &__line {
+        background: #FFFFFF;
+        width: 100%;
+        height: 2px;
+        border-radius: 4px;
+    }
+    &__line-inner {
+        background: $title-color;
+        height: 2px;
+        border-radius: 4px;
+    }
+
+}
+
+// Section Partners
+
+.partners {
+
+    padding: 14px 0 54px 0;
+
+    // .partners__items
+
+    &__items {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+}
+
+// Section About-Collection
+
+.about-collection {
+    margin-bottom: 72px;
+}
+

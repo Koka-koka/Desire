@@ -1,0 +1,39 @@
+.decor {
+    padding: 170px 150px;
+    background-image: url(../images/decor-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    // .decor__title
+
+    &__title {
+        color: $title-color;
+        @extend %title-font;
+        width: 730px;
+        font-size: 60px;
+        line-height: 80px;
+        padding-bottom: 22px;
+        margin-bottom: 22px;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 200px;
+            height: 1px;
+            background: #6D7278;
+            border: 1px solid #979797;
+            border-radius: 0.5px;
+        }
+    }
+
+    // .decor__text
+
+    &__text {
+        width: 540px;
+        line-height: 28px;
+    }
+}
