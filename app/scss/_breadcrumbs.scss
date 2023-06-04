@@ -1,6 +1,8 @@
 .breadcrumbs {
     background: rgba(#dfdfdf, 0.5);
     padding: 13px 14px;
+    position: relative;
+    z-index: 99;
 
     // .breadcrumbs__list
 
@@ -12,7 +14,7 @@
 
     &__item::after {
         content: '/';
-        margin: 0 4px 0 -4px;
+        margin: 0 4px 0 -2px;
     }
 
     &__item:last-child::after {
@@ -23,6 +25,7 @@
 
     &__link {
         font-size: 14px;
+        font-weight: 700;
         color: $default-color;
     }
 }

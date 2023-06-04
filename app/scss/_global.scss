@@ -58,3 +58,27 @@ body {
 		background: #FFEF35;
 	}
 }
+
+.info-mail {
+	display: flex;
+	align-items: center;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 28px;
+	color: $title-color;
+	margin-bottom: 22px;
+	padding-left: 30px;
+	position: relative;
+
+	&::before {
+		content: '';
+		background-image: url(../images/envelope.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		position: absolute;
+		left: 0;
+		width: 16px;
+		height: 16px;
+	}
+}
