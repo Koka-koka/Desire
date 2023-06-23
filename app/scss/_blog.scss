@@ -10,7 +10,7 @@
     // .blog__items
 
     &__items {
-        flex-basis: 730px;
+        max-width: 730px;
     }
 
     // .blog__item
@@ -34,18 +34,6 @@
         margin-bottom: 10px;
     }
 
-    // .blog__item-date
-
-    &__item-date {}
-
-    // .blog__item-author
-
-    &__item-author {}
-
-    // .blog__item-category
-
-    &__item-category {}
-
     // .blog__item-title
 
     &__item-title {
@@ -55,10 +43,6 @@
         line-height: 38px;
         margin-bottom: 5px;
     }
-
-    // .blog__item-excerpt
-
-    &__item-excerpt {}
 
     // .blog__blockquote
 
@@ -84,6 +68,7 @@
         position: relative;
         margin-top: 23px;
         padding-top: 23px;
+
         &::before {
             content: '';
             position: absolute;
@@ -100,11 +85,23 @@
 
     // .blog__item-popup
 
-    &__item-popup {}
+    &__item-popup {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+    }
 
     // .blog__item-play
 
-    &__item-play {}
+    &__item-play {
+        transition: all 0.2s linear;
+
+        &:hover {
+            transform: scale(1.1)
+        }
+    }
 
 
     // .blog__category-title
@@ -176,46 +173,74 @@
     // .article-popup__wrapper
 
     &__wrapper {
-        
+        position: relative;
     }
 }
 
 .article-slider {
+    // .article-slider__arrow
 
-    // .article-slider__wrapper
+    &__arrow {
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        width: 20px;
+        font-weight: 700;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        cursor: pointer;
 
-    &__wrapper {}
+        & img {
+            width: 10px;
+        }
+    }
 
-    // .article-slider__img
+    &__arrowleft {
+        left: 16px;
+    }
 
-    &__img {}
+    &__arrowright {
+        right: 16px;
+    }
 }
 
 .pagination {
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     // .pagination__arrow
 
-    &__arrow {}
-
-    // .pagination__icon
-
-    &__icon {}
+    &__arrow--disabled {
+        display: none;
+    }
 
     // .pagination__list
 
-    &__list {}
-
-    // .pagination__item
-
-    &__item {}
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 0 8px;
+        padding: 0 7px;
+    }
 
     // .pagination__num
 
-    &__num {}
+    &__num {
+        font-weight: 600;
+        font-size: 14px;
+        color: #707070;
+    }
 
     // .pagination__num--active
 
-    &__num--active {}
+    &__num--active {
+        color: $title-color;
+        font-size: 16px;
+        font-weight: 700;
+    }
 }
 
 .aside {

@@ -8,8 +8,8 @@ html{
   box-sizing: inherit;
 }
 
-ul[class],
-ol[class] {
+ul,
+ol {
   padding: 0;
 }
 
@@ -33,7 +33,7 @@ dd {
   font-size: inherit;
 }
 
-ul[class] {
+ul {
   list-style: none;
 }
 

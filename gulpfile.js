@@ -5,7 +5,10 @@ const concat         = require('gulp-concat');
 const browserSync    = require('browser-sync').create();
 const uglify         = require('gulp-uglify-es').default;
 const autoprefixer   = require('gulp-autoprefixer');
-const imagemin       = import('gulp-imagemin');
+const avif           = require('gulp-avif');
+const webp           = require('gulp-webp');
+const imagemin       = require('gulp-imagemin');
+const newer          = require('gulp-newer');
 const clean          = require('gulp-clean');
 
 
@@ -18,22 +21,20 @@ function browsersync() {
 }
 
 
-function images() {
-  return src('app/images/**/*')
-    .pipe(imagemin(
-      [
-        imagemin.gifsicle({ interlaced: true }),
-        imagemin.mozjpeg({ quality: 75, progressive: true }),
-        imagemin.optipng({ optimizationLevel: 5 }),
-        imagemin.svgo({
-          plugins: [
-            { removeViewBox: true },
-            { cleanupIDs: false }
-          ]
-        })
-      ]
-    ))
-    .pipe(dest('dist/images'))
+function optimizeImages() {
+  return src(['app/images/src/**/*.*', '!app/images/src/**/*.svg'])
+          .pipe(newer('app/images'))
+          .pipe(avif({quality : 50}))
+
+          .pipe(src('app/images/src/**/*.*'))
+          .pipe(newer('app/images'))
+          .pipe(webp())
+
+          .pipe(src('app/images/src/**/*.*'))
+          .pipe(newer('app/images'))
+          .pipe(imagemin())
+
+          .pipe(dest('app/images'))
 }
 
 function scripts() {
@@ -41,7 +42,6 @@ function scripts() {
     'node_modules/jquery/dist/jquery.js',
     'node_modules/slick-carousel/slick/slick.js',
     'node_modules/mixitup/dist/mixitup.js',
-    'node_modules/@fancyapps/ui/dist/fancybox/fancybox.umd.js',
     'app/js/main.js'
   ])
     .pipe(concat('main.min.js'))
@@ -71,8 +71,10 @@ function cleanDist() {
 function building() {
   return src([
     'app/css/style.min.css',
-    'app/fonts/**/*',
     'app/js/main.min.js',
+    'app/images/**/*.*',
+    '!app/images/src/**/*.*',
+    'app/fonts/**/*',
     'app/*.html'
   ], {base: 'app'})
     .pipe(dest('dist'))
@@ -81,17 +83,18 @@ function building() {
 function watching() {
   watch(['app/scss/**/*.scss'], styles);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
+  watch(['app/images/**/*.*'], optimizeImages);
   watch(['app/*.html']).on('change', browserSync.reload);
 }
 
-exports.styles = styles;
-exports.watching = watching;
-exports.browsersync = browsersync;
-exports.scripts = scripts;
-exports.images = images;
+exports.styles         = styles;
+exports.watching       = watching;
+exports.browsersync    = browsersync;
+exports.scripts        = scripts;
+exports.optimizeImages = optimizeImages;
 
 
 exports.build = series(cleanDist, building);
-exports.default = parallel(styles ,scripts ,browsersync, watching);
+exports.default = parallel(styles, scripts, optimizeImages,browsersync, watching);
 
 
